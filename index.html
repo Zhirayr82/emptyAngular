@@ -1,13 +1,78 @@
 <!DOCTYPE html>
 <html ng-app="app">
-    <head>
-        <meta charset="utf-8">
-        <title>Angular Project</title>
-    </head>
-    <body ng-controller='mainController as vm'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>Angular Project</title>
+</head>
+<style type="text/css">
+	body{
+		background-image: url(http://sullytel.com/wp-content/uploads/2014/11/light-blue-background.jpg);
+		width: 1000px;
+		font-family: loma, sans-serif;
+		font-size: 18px;
+	}
+	#personage{
+		margin-top: 28px;
+		margin-left: 230px;
+	}
+	#inp{
+		width: 800px;
+		margin-right: 10px;
+	}
+	input{
 
-        <script src="js/libs/angular.min.js"></script>
-        <script src="js/controllers/mainController.js"></script>
-        <script src="js/app.js"></script>
-    </body>
+	}
+	table{
+		border: 3px solid black;
+		width: 800px;
+		text-align: center;
+		background-color: #FFBF5F;
+	}
+	td{
+		border: 1px solid black; 
+		width: 350px;
+		padding: 10px;
+	}
+	.aju{
+		width: 800px;
+		margin-top: 30px;
+	}
+	h2{
+		margin-left: 280px;
+	}
+</style>
+<body ng-controller='mainController as vm'>
+	<div class="container" id="personage" >  
+		<h2>Angular Project</h2>
+		<table id="table">
+			<tr>
+				<td><b><big>ID</big></b></td>	
+				<td><b><big>Nom <br> <input class="form-control" id="focusedInput" type="text" ng-model="lastName" ng-pattern="/^[A-Za-z]{1,49}$/">	</big></b></td>
+				<td><b><big>Prenom <br> <input class="form-control" id="focusedInput" type="text" ng-model="firstName" ng-pattern="/^[A-Za-z]{1,49}$/"></big></b></td>
+				<td><b><big>E-mail <br> <input class="form-control" id="focusedInput" type="text" ng-model="mail" ng-pattern="/\b[\w.%+-]+@[a-zA-Z\d.-]+\.[A-Za-z]{2,4}\b/"></big></b></td>
+				<td><b><big>Button</big></b></td>
+			</tr>
+			<tr ng-repeat="x in person">
+				<td >{{x.id}} </td>
+				<td >{{x.lastName}} </td>
+				<td >{{x.firstName}}</td>
+				<td >{{x.mail}}</td>
+				<td>	
+					<button type="button" class="btn btn-danger btn-xs" ng-click="deletePerson()">Suprimer</button>
+				</td>
+
+			</tr>
+		</table>
+		<button type="button" class="aju"  ng-click="addPerson()">Ajouter</button>
+
+	</div>
+
+	<script src="js/libs/angular.min.js"></script>
+	<script src="js/controllers/mainController.js"></script>
+	<script src="js/app.js"></script>
+</body>
 </html>
